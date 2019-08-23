@@ -3,14 +3,13 @@
 Mande seu correio elegante
 
 ## Getting Started
-####manjariando
+
+#### manjariando
 ```systemctl start mongodb.service```
 
-### Prerequisites
+#### Prerequisites
 
-O que você precisa:
-
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.telegram/telegrambots/badge.svg)](http://maven.apache.org/POM/4.0.0)
+[![Maven Central](http://maven.apache.org/POM/4.0.0)
 
 ```
 <modelVersion>4.0.0</modelVersion>
