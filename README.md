@@ -9,9 +9,6 @@ Mande seu correio elegante
 
 #### Prerequisites
 
-[![Maven Central](https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwjK3JTR4ZfkAhVRA9QKHdPsAVEQjRx6BAgBEAQ&url=http%3A%2F%2Froufid.com%2F3-ways-to-add-local-jar-to-maven-project%2F&psig=AOvVaw0mLIrQEPAZA7EuhWSDSuzo&ust=1566607435706939)]
-(http://maven.apache.org/POM/4.0.0)
-
 ```
 <modelVersion>4.0.0</modelVersion>
 
