@@ -5,6 +5,7 @@ import br.com.guedes.elegantez.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -20,8 +21,11 @@ public class UserService {
                 "Objeto não encontrado! Id: " + id + ", Tipo: " + User.class.getName()));
     }
 
+    public List<User> findAll() {
+        return repository.findAll();
+    }
+
     public User insert(User user) {
-        user.setId(null);
-        return repository.save(user);
+        return repository.insert(user);
     }
 }

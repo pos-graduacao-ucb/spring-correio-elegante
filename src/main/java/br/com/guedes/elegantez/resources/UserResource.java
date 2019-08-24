@@ -9,6 +9,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.validation.Valid;
 import java.net.URI;
+import java.util.List;
 
 @RestController
 @RequestMapping(value = "/users")
@@ -18,13 +19,19 @@ public class UserResource {
     private UserService service;
 
     @RequestMapping(value="/{id}", method = RequestMethod.GET)
-    public ResponseEntity<User> find(@PathVariable String id) {
+    public ResponseEntity<User> findById(@PathVariable String id) {
         User user = service.findById(id);
         return ResponseEntity.ok().body(user);
     }
 
+    @RequestMapping(method = RequestMethod.GET)
+    public ResponseEntity<List<User>> findAll() {
+        List<User> listUsers = service.findAll();
+        return ResponseEntity.ok().body(listUsers);
+    }
+
     @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<Void> insert(@Valid @RequestBody User user) {
+    public ResponseEntity<Void> insert(@RequestBody User user) {
         User userInsert = service.insert(user);
         URI uri = ServletUriComponentsBuilder
                 .fromCurrentRequest()
