@@ -1,6 +1,7 @@
 package br.com.guedes.elegantez.resources;
 
 import br.com.guedes.elegantez.domain.User;
+import br.com.guedes.elegantez.dto.UserDTO;
 import br.com.guedes.elegantez.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -41,9 +42,10 @@ public class UserResource {
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-    public ResponseEntity<Void> update(@PathVariable String id, @RequestBody User user) {
-        User userUpdate = service.update(user);
-        userUpdate = service.insert(user);
+    public ResponseEntity<Void> update(@PathVariable String id, @RequestBody UserDTO userDTO) {
+        User obj = service.fromDTO(userDTO);
+        obj.setId(id);
+        obj = service.update(obj);
         return ResponseEntity.noContent().build();
     }
 
