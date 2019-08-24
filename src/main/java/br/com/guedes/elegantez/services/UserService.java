@@ -1,6 +1,7 @@
 package br.com.guedes.elegantez.services;
 
 import br.com.guedes.elegantez.domain.User;
+import br.com.guedes.elegantez.dto.UserDTO;
 import br.com.guedes.elegantez.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,13 +30,24 @@ public class UserService {
         return repository.insert(user);
     }
 
-    public User update(User user) {
-        User newUser = findById(user.getId());
-        return repository.save(user);
+    public User update(User obj) {
+        User newObj = findById(obj.getId());
+        updateData(newObj, obj);
+        return repository.save(newObj);
+    }
+
+    private void updateData(User newObj, User obj) {
+        newObj.setName(obj.getName());
+        newObj.setEmail(obj.getEmail());
     }
 
     public void delete(String id) {
         findById(id);
         repository.deleteById(id);
+    }
+
+    public User fromDTO(UserDTO objDto) {
+        return new User(objDto.getId(), objDto.getName(), objDto.getEmail(),
+                        objDto.getPassword(), objDto.getAge(), objDto.getGenre());
     }
 }
