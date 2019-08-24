@@ -28,4 +28,14 @@ public class UserService {
     public User insert(User user) {
         return repository.insert(user);
     }
+
+    public User update(User user) {
+        User newUser = findById(user.getId());
+        return repository.save(user);
+    }
+
+    public void delete(String id) {
+        findById(id);
+        repository.deleteById(id);
+    }
 }

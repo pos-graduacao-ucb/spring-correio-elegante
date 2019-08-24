@@ -7,7 +7,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import javax.validation.Valid;
 import java.net.URI;
 import java.util.List;
 
@@ -39,5 +38,18 @@ public class UserResource {
                 .buildAndExpand(user.getId())
                 .toUri();
         return ResponseEntity.created(uri).build();
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+    public ResponseEntity<Void> update(@PathVariable String id, @RequestBody User user) {
+        User userUpdate = service.update(user);
+        userUpdate = service.insert(user);
+        return ResponseEntity.noContent().build();
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    public ResponseEntity<Void> delete(@PathVariable String id) {
+        service.delete(id);
+        return ResponseEntity.noContent().build();
     }
 }
