@@ -4,6 +4,8 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @Document(collection = "user")
 public class User implements Serializable {
@@ -17,10 +19,12 @@ public class User implements Serializable {
     private String password;
     private String age;
     private String genre;
+    private List<ElegantMail> listElegantEmail;
 
     public User() {}
 
     public User(String id, String name, String nickname, String email, String password, String age, String genre) {
+        this.listElegantEmail = new ArrayList<>();
         this.id = id;
         this.name = name;
         this.nickname = nickname;
@@ -28,6 +32,10 @@ public class User implements Serializable {
         this.password = password;
         this.age = age;
         this.genre = genre;
+    }
+
+    public void addingElegantMail(ElegantMail elegantMail) {
+        this.listElegantEmail.add(elegantMail);
     }
 
     public String getId() {
