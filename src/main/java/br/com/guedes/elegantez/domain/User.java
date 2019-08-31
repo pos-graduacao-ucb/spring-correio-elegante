@@ -25,7 +25,6 @@ public class User implements Serializable {
     public User() {}
 
     public User(String id, String name, String nickname, String email, String password, String age, String genre) {
-        this.listElegantMail = new ArrayList<>();
         this.id = id;
         this.name = name;
         this.nickname = nickname;
@@ -33,6 +32,7 @@ public class User implements Serializable {
         this.password = password;
         this.age = age;
         this.genre = genre;
+        this.listElegantMail = new ArrayList<>();
     }
 
     public List<ElegantMail> getListElegantMail() {
