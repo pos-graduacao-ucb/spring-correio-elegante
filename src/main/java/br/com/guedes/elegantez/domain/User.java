@@ -12,6 +12,7 @@ public class User implements Serializable {
     @Id
     private String id;
     private String name;
+    private String nickname;
     private String email;
     private String password;
     private String age;
@@ -19,9 +20,10 @@ public class User implements Serializable {
 
     public User() {}
 
-    public User(String id, String name, String email, String password, String age, String genre) {
+    public User(String id, String name, String nickname, String email, String password, String age, String genre) {
         this.id = id;
         this.name = name;
+        this.nickname = nickname;
         this.email = email;
         this.password = password;
         this.age = age;
@@ -42,6 +44,14 @@ public class User implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
     }
 
     public String getEmail() {
