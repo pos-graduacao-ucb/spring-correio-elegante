@@ -5,6 +5,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Document(collection = "user")
@@ -32,6 +33,10 @@ public class User implements Serializable {
         this.password = password;
         this.age = age;
         this.genre = genre;
+    }
+
+    public List<ElegantMail> getListElegantEmail() {
+        return Collections.unmodifiableList(listElegantEmail);
     }
 
     public void addingElegantMail(ElegantMail elegantMail) {
