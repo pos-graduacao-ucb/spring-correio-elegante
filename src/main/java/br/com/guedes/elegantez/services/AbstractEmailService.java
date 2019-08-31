@@ -22,10 +22,10 @@ public class AbstractEmailService implements EmailServiceImpl {
     private JavaMailSender javaMailSender;
 
     @Override
-    public void emailDeConfirmacaoHtml(User user) throws MessagingException {
+    public void confirmationEmailHtml(User user) throws MessagingException {
     }
 
     @Override
-    public void sendHtmlEmail(MimeMessage mimeMessage) {
+    public void sendEmailHtml(MimeMessage mimeMessage) {
     }
 }

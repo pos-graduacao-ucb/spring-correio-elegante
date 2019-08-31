@@ -7,6 +7,6 @@ import javax.mail.internet.MimeMessage;
 
 public interface EmailServiceImpl {
 
-    void emailDeConfirmacaoHtml(User user) throws MessagingException;
-    void sendHtmlEmail(MimeMessage mimeMessage);
+    void confirmationEmailHtml(User user) throws MessagingException;
+    void sendEmailHtml(MimeMessage mimeMessage);
 }
