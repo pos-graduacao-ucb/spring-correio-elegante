@@ -20,12 +20,12 @@ public class User implements Serializable {
     private String password;
     private String age;
     private String genre;
-    private List<ElegantMail> listElegantEmail;
+    private List<ElegantMail> listElegantMail;
 
     public User() {}
 
     public User(String id, String name, String nickname, String email, String password, String age, String genre) {
-        this.listElegantEmail = new ArrayList<>();
+        this.listElegantMail = new ArrayList<>();
         this.id = id;
         this.name = name;
         this.nickname = nickname;
@@ -35,12 +35,12 @@ public class User implements Serializable {
         this.genre = genre;
     }
 
-    public List<ElegantMail> getListElegantEmail() {
-        return Collections.unmodifiableList(listElegantEmail);
+    public List<ElegantMail> getListElegantMail() {
+        return Collections.unmodifiableList(listElegantMail);
     }
 
     public void addingElegantMail(ElegantMail elegantMail) {
-        this.listElegantEmail.add(elegantMail);
+        this.listElegantMail.add(elegantMail);
     }
 
     public String getId() {
