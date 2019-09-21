@@ -1,12 +1,12 @@
 package br.com.guedes.elegantez.domain;
 
+import br.com.guedes.elegantez.domain.enums.Profile;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Document(collection = "user")
 public class User implements Serializable {
@@ -21,8 +21,11 @@ public class User implements Serializable {
     private String age;
     private String genre;
     private List<ElegantMail> listElegantMail;
+    private Set<Integer> profiles = new HashSet<>();
 
-    public User() {}
+    public User() {
+        addProfile(Profile.USER);
+    }
 
     public User(String id, String name, String nickname, String email, String password, String age, String genre) {
         this.id = id;
@@ -33,6 +36,7 @@ public class User implements Serializable {
         this.age = age;
         this.genre = genre;
         this.listElegantMail = new ArrayList<>();
+        addProfile(Profile.USER);
     }
 
     public List<ElegantMail> getListElegantMail() {
@@ -97,5 +101,17 @@ public class User implements Serializable {
 
     public void setGenre(String genre) {
         this.genre = genre;
+    }
+
+    public Set<Profile> getProfiles() {
+        return profiles.stream().map(x -> Profile.toEnum(x)).collect(Collectors.toSet());
+    }
+
+    public void addProfile(Profile profile) {
+        profiles.add(profile.getCod());
+    }
+
+    public void setProfiles(Set<Integer> profiles) {
+        this.profiles = profiles;
     }
 }
