@@ -12,8 +12,9 @@ Mande seu correio elegante
 ```
 <modelVersion>4.0.0</modelVersion>
 
-java version 8
-mongodb
+java version 11
+
+MongoDB
 ```
 
 ## License 
