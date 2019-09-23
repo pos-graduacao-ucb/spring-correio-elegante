@@ -1,6 +1,7 @@
 package br.com.guedes.elegantez.config;
 
 import br.com.guedes.elegantez.security.authentication.JWTAuthenticationFilter;
+import br.com.guedes.elegantez.security.authorization.JWTAuthorizationFilter;
 import br.com.guedes.elegantez.util.JWTUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -47,6 +48,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authenticated();
 
         http.addFilter(new JWTAuthenticationFilter(authenticationManager(), jwtUtil));
+        http.addFilter(new JWTAuthorizationFilter(authenticationManager(), jwtUtil, userDetailsService));
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
     }
 
