@@ -26,8 +26,8 @@ public class UserResource {
 
     @RequestMapping(method = RequestMethod.GET)
     public ResponseEntity<List<User>> findAll() {
-        List<User> listUsers = service.findAll();
-        return ResponseEntity.ok().body(listUsers);
+        List<User> userListers = service.findAll();
+        return ResponseEntity.ok().body(userListers);
     }
 
     @RequestMapping(method = RequestMethod.POST)
