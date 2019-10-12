@@ -38,6 +38,7 @@ public class ElegantMailService {
         PageRequest pageRequest = new PageRequest(page, linesPerPage, Sort.Direction.valueOf(direction), orderBy);
         Optional<User> user = userRepository.findById(userSS.getId());
 
-        return repository.findByUser(user, pageRequest);
+        return repository.findByUser(user.orElseThrow(() -> new RuntimeException(
+                "Objeto não encontrado! Id: " + ", Tipo: " + User.class.getName())), pageRequest);
     }
 }
