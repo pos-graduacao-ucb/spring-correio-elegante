@@ -16,4 +16,6 @@ public class ElegantMailService {
     public List<ElegantMail> findAll() {
         return repository.findAll();
     }
+
+
 }
