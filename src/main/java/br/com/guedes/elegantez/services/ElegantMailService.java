@@ -28,17 +28,4 @@ public class ElegantMailService {
         return repository.findAll();
     }
 
-    public Page<ElegantMail> findPage(Integer page, Integer linesPerPage, String orderBy, String direction) {
-        UserSS userSS = UserService.authenticated();
-
-        if(userSS == null) {
-            throw new AuthorizationException("Acesso negado");
-        }
-
-        PageRequest pageRequest = new PageRequest(page, linesPerPage, Sort.Direction.valueOf(direction), orderBy);
-        Optional<User> user = userRepository.findById(userSS.getId());
-
-        return repository.findByUser(user.orElseThrow(() -> new RuntimeException(
-                "Objeto não encontrado! Id: " + ", Tipo: " + User.class.getName())), pageRequest);
-    }
 }
