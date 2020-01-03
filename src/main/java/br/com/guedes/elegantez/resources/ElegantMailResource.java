@@ -26,4 +26,14 @@ public class ElegantMailResource {
         return ResponseEntity.ok().body(mailList);
     }
 
+    @RequestMapping(method=RequestMethod.GET)
+    public ResponseEntity<Page<ElegantMail>> findPage(
+            @RequestParam(value="page", defaultValue="0") Integer page,
+            @RequestParam(value="linesPerPage", defaultValue="24") Integer linesPerPage,
+            @RequestParam(value="orderBy", defaultValue="instante") String orderBy,
+            @RequestParam(value="direction", defaultValue="DESC") String direction) {
+        Page<ElegantMail> list = service.findPage(page, linesPerPage, orderBy, direction);
+        return ResponseEntity.ok().body(list);
+    }
+
 }

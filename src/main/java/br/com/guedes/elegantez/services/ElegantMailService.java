@@ -28,4 +28,16 @@ public class ElegantMailService {
         return repository.findAll();
     }
 
+    public Page<ElegantMail> findPage(Integer page, Integer linesPerPage, String orderBy, String direction) {
+        UserSS userSS = UserService.authenticated();
+
+        if(userSS == null) {
+            throw new AuthorizationException("Acesso negado");
+        }
+
+        PageRequest pageRequest = new PageRequest(page, linesPerPage, Sort.Direction.valueOf(direction), orderBy);
+        Optional<User> user = userRepository.findById(userSS.getId());
+
+        return repository.findByElegantMail(user.get(), pageRequest);
+    }
 }
