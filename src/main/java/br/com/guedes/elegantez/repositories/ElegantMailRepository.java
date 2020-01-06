@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Repository
 public interface ElegantMailRepository extends MongoRepository<ElegantMail, String> {
 
-    @Transactional(readOnly = true)
-    Page<ElegantMail> findByElegantMail(User user, Pageable pageRequest);
+//    @Transactional(readOnly = true)
+//    Page<ElegantMail> findByElegantMail(User user, Pageable pageRequest);
 
 }

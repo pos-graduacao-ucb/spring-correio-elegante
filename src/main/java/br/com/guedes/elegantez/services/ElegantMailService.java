@@ -19,25 +19,25 @@ import java.util.Optional;
 public class ElegantMailService {
 
     @Autowired
-    private ElegantMailRepository repository;
+    private ElegantMailRepository elegantMailRepository;
 
     @Autowired
     private UserRepository userRepository;
 
     public List<ElegantMail> findAll() {
-        return repository.findAll();
+        return elegantMailRepository.findAll();
     }
 
-    public Page<ElegantMail> findPage(Integer page, Integer linesPerPage, String orderBy, String direction) {
-        UserSS userSS = UserService.authenticated();
-
-        if(userSS == null) {
-            throw new AuthorizationException("Acesso negado");
-        }
-
-        PageRequest pageRequest = new PageRequest(page, linesPerPage, Sort.Direction.valueOf(direction), orderBy);
-        Optional<User> user = userRepository.findById(userSS.getId());
-
-        return repository.findByElegantMail(user.get(), pageRequest);
-    }
+//    public Page<ElegantMail> findPage(Integer page, Integer linesPerPage, String orderBy, String direction) {
+//        UserSS userSS = UserService.authenticated();
+//
+//        if(userSS == null) {
+//            throw new AuthorizationException("Acesso negado");
+//        }
+//
+//        PageRequest pageRequest = new PageRequest(page, linesPerPage, Sort.Direction.valueOf(direction), orderBy);
+//        Optional<User> user = userRepository.findById(userSS.getId());
+//
+//        return elegantMailRepository.findByElegantMail(user.get(), pageRequest);
+//    }
 }
