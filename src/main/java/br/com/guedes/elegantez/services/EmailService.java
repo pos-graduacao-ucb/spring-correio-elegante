@@ -1,12 +1,11 @@
-package br.com.guedes.elegantez.services.impl;
+package br.com.guedes.elegantez.services;
 
 import br.com.guedes.elegantez.domain.User;
 import org.springframework.mail.SimpleMailMessage;
 
 import javax.mail.MessagingException;
-import javax.mail.internet.MimeMessage;
 
-public interface EmailServiceImpl {
+public interface EmailService {
 
     void confirmationEmailHtml(User user) throws MessagingException;
     void sendEmailHtml(SimpleMailMessage simpleMailMessage);

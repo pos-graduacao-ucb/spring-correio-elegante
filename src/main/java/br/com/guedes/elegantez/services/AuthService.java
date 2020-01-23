@@ -1,8 +1,7 @@
-package br.com.guedes.elegantez.security;
+package br.com.guedes.elegantez.services;
 
 import br.com.guedes.elegantez.domain.User;
 import br.com.guedes.elegantez.repositories.UserRepository;
-import br.com.guedes.elegantez.services.impl.EmailServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -18,7 +17,8 @@ public class AuthService {
     @Autowired
     private UserRepository repository;
 
-    private EmailServiceImpl emailService;
+    @Autowired
+    private EmailService emailService;
 
     private Random random = new Random();
 

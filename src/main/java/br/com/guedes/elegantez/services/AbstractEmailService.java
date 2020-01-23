@@ -1,7 +1,6 @@
 package br.com.guedes.elegantez.services;
 
 import br.com.guedes.elegantez.domain.User;
-import br.com.guedes.elegantez.services.impl.EmailServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;
@@ -9,10 +8,9 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.thymeleaf.TemplateEngine;
 
 import javax.mail.MessagingException;
-import javax.mail.internet.MimeMessage;
 import java.util.Date;
 
-public class AbstractEmailService implements EmailServiceImpl {
+public abstract class AbstractEmailService implements EmailService {
 
     @Value("$default.sender")
     private String sender;

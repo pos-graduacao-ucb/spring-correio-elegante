@@ -1,8 +1,8 @@
 package br.com.guedes.elegantez.resources;
 
 import br.com.guedes.elegantez.dto.EmailDTO;
-import br.com.guedes.elegantez.security.AuthService;
 import br.com.guedes.elegantez.security.UserSS;
+import br.com.guedes.elegantez.services.AuthService;
 import br.com.guedes.elegantez.services.UserService;
 import br.com.guedes.elegantez.util.JWTUtil;
 import org.springframework.beans.factory.annotation.Autowired;
