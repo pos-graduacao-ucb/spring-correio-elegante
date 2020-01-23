@@ -1,6 +1,9 @@
 package br.com.guedes.elegantez.dto;
 
-public class EmailDTO {
+import java.io.Serializable;
+
+public class EmailDTO implements Serializable {
+    private static final long serialVersionUID = 1L;
 
     private String email;
 
