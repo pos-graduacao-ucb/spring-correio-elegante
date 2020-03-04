@@ -21,7 +21,7 @@ public class ElegantezApplication implements CommandLineRunner {
 
 	@RequestMapping("/")
 	public String home() {
-		return "Hello Docker World";
+		return "Hello Users";
 	}
 
 	@Autowired
