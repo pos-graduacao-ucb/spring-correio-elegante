@@ -32,7 +32,7 @@ public class UserResource {
 
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<Void> insert(@RequestBody User user) {
-        User userInsert = service.insert(user);
+        service.insert(user);
         URI uri = ServletUriComponentsBuilder
                 .fromCurrentRequest()
                 .path("/{id}")
