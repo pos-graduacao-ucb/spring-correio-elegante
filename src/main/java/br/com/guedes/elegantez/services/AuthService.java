@@ -17,7 +17,6 @@ public class AuthService {
     @Autowired
     private UserRepository repository;
 
-    @Autowired
     private EmailService emailService;
 
     private Random random = new Random();
